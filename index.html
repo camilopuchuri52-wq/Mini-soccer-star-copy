@@ -327,7 +327,7 @@ function legPose(bones,sd,th,kn){
 }
 { // medimos dónde queda el pie para cada golpe y elegimos ángulos que dejan el pie a la altura correcta del balón
   const A=new V3(),Bp=new V3();
-  for(const[name,K]of Object.entries(KIND)){ // (A y Bp: puntos A=empeine, B=punta)K.tuned={};
+  for(const[name,K]of Object.entries(KIND)){ K.tuned={}; // (A y Bp: puntos A=empeine, B=punta)
     for(const sd of['Right','Left']){let best=null;
       for(let th=Math.max(.02,K.c.th-.2);th<=K.c.th+.2;th+=.05)for(let kn=0;kn<=.9;kn+=.1){
         const undo=legPose(tpl.bones,sd,th,kn);tpl.group.updateMatrixWorld(true);footPts(tpl.bones,sd,A,Bp);
