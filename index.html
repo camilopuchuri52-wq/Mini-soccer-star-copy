@@ -334,7 +334,7 @@ function legPose(bones,sd,th,kn){
         const m={th,kn,x:Bp.x,z:Bp.z,h:Bp.y};undo();
         m.cost=Math.abs(m.h-K.hT)*8+Math.abs(th-K.c.th)*.6+Math.abs(kn-K.c.kn)*.25+(m.z<.15?5:0);
         if(!best||m.cost<best.cost)best=m}
-      best.kc=Math.sqrt(clamp((best.th-K.back)/(K.fwd-K.back),.05,1));K.tuned[sd]=best}}
+      best.kc=Math.sqrt(clamp((best.th-K.back)/(K.fwd-K.back),.05,1));if(!K.tuned)K.tuned=Object.create(null);K.tuned[sd]=best}}
   tpl.group.updateMatrixWorld(true);
 }
 
